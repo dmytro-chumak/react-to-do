@@ -1,0 +1,47 @@
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  border-right: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.search {
+  padding: 20px 20px 0 20px;
+  width: 100%;
+}
+
+.search input {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: transparent;
+}
+
+.menu {
+  list-style: none;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menuItem {
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  background-color: #f0f0f0;
+}
+
+.menuItem a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
