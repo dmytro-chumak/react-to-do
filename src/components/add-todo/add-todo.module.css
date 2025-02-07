@@ -1,0 +1,21 @@
+.add-todo-container {
+  padding: 10px 0;
+  height: 10vh;
+  position: fixed;
+  left: 320px;
+  bottom: 0;
+  background-color: white;
+  width: calc(100vw - 377px);
+}
+
+.add-todo {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: none;
+  width: 100%;
+}
+
+.add-todo:focus {
+  outline: none;
+  background-color: #e0e0e0;
+}
