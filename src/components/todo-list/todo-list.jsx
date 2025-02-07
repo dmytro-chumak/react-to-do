@@ -4,10 +4,12 @@ import styles from "./todo-list.module.css";
 
 import TodoItem from "@/components/todo-item/todo-item";
 
-import { useState } from "react";
+import { useContext } from "react";
+
+import { TasksContext } from "@/context/TasksContext/TasksContext";
 
 export default function TodoList() {
-  const [todos, setTodos] = useState(initialTodos);
+  const todos = useContext(TasksContext);
 
   return (
     <div className={styles["list-container"]}>
@@ -28,16 +30,3 @@ export default function TodoList() {
     </div>
   );
 }
-
-const initialTodos = [
-  {
-    id: 1,
-    text: "Learn React",
-    done: true,
-  },
-  {
-    id: 2,
-    text: "Learn Next.js",
-    done: false,
-  },
-];
