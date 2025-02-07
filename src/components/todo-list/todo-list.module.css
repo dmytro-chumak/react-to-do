@@ -1,0 +1,13 @@
+.list-container {
+  margin: 10vh 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  overflow-y: auto;
+}
