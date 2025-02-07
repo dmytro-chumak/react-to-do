@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import styles from "./page.module.css";
 import Sidebar from "@/components/sidebar/sidebar";
+import TasksContextProvider from "@/context/LevelContext/LevelContextProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,7 +25,9 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div className={styles.page}>
           <Sidebar />
-          <main className={styles.container}>{children}</main>
+          <TasksContextProvider>
+            <main className={styles.container}>{children}</main>
+          </TasksContextProvider>
         </div>
       </body>
     </html>
