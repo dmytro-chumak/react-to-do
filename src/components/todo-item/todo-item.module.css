@@ -1,0 +1,33 @@
+.item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.item:hover {
+  background-color: #e0e0e0;
+}
+
+.button-done {
+  width: 20px;
+  height: 20px;
+  padding: 1px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button-done:hover::before {
+  content: "✓";
+}
+
+.done span {
+  text-decoration: line-through;
+}
+
+.done .button-done::before {
+  content: "✓";
+}
