@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./todo-item.module.css";
 
 import { useContext } from "react";
