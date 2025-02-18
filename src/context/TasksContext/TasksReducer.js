@@ -10,6 +10,7 @@ export default function tasksReducer(tasks, action) {
       const task = {
         id: maxId + 1,
         text: action.text,
+        date: action.date,
         done: false,
       };
 

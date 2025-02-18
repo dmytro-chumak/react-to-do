@@ -3,6 +3,7 @@ import "./globals.css";
 import styles from "./page.module.css";
 import Sidebar from "@/components/sidebar/sidebar";
 import TasksContextProvider from "@/context/TasksContext/TasksContextProvider";
+import "react-datepicker/dist/react-datepicker.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

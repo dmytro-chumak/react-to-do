@@ -6,6 +6,7 @@
   bottom: 0;
   background-color: white;
   width: calc(100vw - 377px);
+  display: flex;
 }
 
 .add-todo {
