@@ -6,7 +6,7 @@ import { useContext } from "react";
 
 import { TasksDispatchContext } from "@/context/TasksContext/TasksContext";
 
-export default function TodoItem({ id, text, done }) {
+export default function TodoItem({ id, text, done, date }) {
   const dispatch = useContext(TasksDispatchContext);
 
   function handleDone() {
@@ -16,7 +16,10 @@ export default function TodoItem({ id, text, done }) {
   return (
     <li className={styles.item + " " + (done ? styles.done : "")}>
       <button onClick={handleDone} className={styles["button-done"]}></button>
-      <span>{text}</span>
+      <div className={styles["text-container"]}>
+        <span>{text}</span>
+        <span className={styles.date}>{date}</span>
+      </div>
     </li>
   );
 }
