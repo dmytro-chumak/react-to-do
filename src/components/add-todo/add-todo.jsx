@@ -10,7 +10,7 @@ import Calendar from "../calendar/calendar";
 export default function AddTodo() {
   const buttonRef = useRef(null);
   const [value, setValue] = useState("");
-  const [date, setDate] = useState(new Date().toLocaleDateString());
+  const [date, setDate] = useState("");
   const [showCalendar, setShowCalendar] = useState(false);
   const dispatch = useContext(TasksDispatchContext);
 
