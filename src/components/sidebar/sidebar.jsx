@@ -34,7 +34,7 @@ function Menu() {
 function MenuItem({ url, value }) {
   return (
     <li className={styles.menuItem}>
-      <Link href={url} className={styles.menuItem}>
+      <Link href={url} className={styles.menuItem} scroll={false}>
         {value}
       </Link>
     </li>
