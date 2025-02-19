@@ -1,0 +1,21 @@
+.calendar-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: clamp(300px, 20vw, 400px);
+  background-color: aliceblue;
+  margin: 10px;
+  right: 0;
+}
+
+.button {
+  background-color: #f0f0f0;
+  width: 100%;
+  padding: 10px;
+  border: none;
+}
+
+.button:hover {
+  background-color: #e0e0e0;
+}

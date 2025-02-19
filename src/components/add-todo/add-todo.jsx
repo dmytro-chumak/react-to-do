@@ -2,16 +2,15 @@
 
 import styles from "./add-todo.module.css";
 
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import { TasksDispatchContext } from "@/context/TasksContext/TasksContext";
 
 import Calendar from "../calendar/calendar";
 
 export default function AddTodo() {
+  const buttonRef = useRef(null);
   const [value, setValue] = useState("");
-
   const [date, setDate] = useState(new Date().toLocaleDateString());
-
   const [showCalendar, setShowCalendar] = useState(false);
   const dispatch = useContext(TasksDispatchContext);
 
@@ -42,10 +41,14 @@ export default function AddTodo() {
           placeholder="Try typing something"
           onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}
         ></input>
-        <button onClick={handleCalendarToggle}>Calendar {`${date}`}</button>
+        <button ref={buttonRef} onClick={handleCalendarToggle}>
+          Calendar {`${date}`}
+        </button>
       </div>
 
-      {showCalendar && <Calendar onChose={handleCalendarChose} />}
+      {showCalendar && (
+        <Calendar onChose={handleCalendarChose} buttonRef={buttonRef} />
+      )}
     </>
   );
 }
