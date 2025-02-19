@@ -8,14 +8,22 @@ export default function Calendar({ onChose, buttonRef }) {
 
   useEffect(() => {
     function changeCalendarPosition() {
-      const buttonRect = buttonRef.current.getBoundingClientRect();
-      const calendarRect = calendarRef.current.getBoundingClientRect();
-      const top =
-        buttonRect.top -
-        calendarRect.height -
-        parseInt(getComputedStyle(buttonRef.current).marginTop) -
-        parseInt(getComputedStyle(calendarRef.current).marginBottom);
-      calendarRef.current.style.top = top + "px";
+      if (!buttonRef.current || !calendarRef.current) return;
+
+      requestAnimationFrame(() => {
+        const buttonRect = buttonRef.current.getBoundingClientRect();
+        const calendarRect = calendarRef.current.getBoundingClientRect();
+        const buttonStyles = getComputedStyle(buttonRef.current);
+        const calendarStyles = getComputedStyle(calendarRef.current);
+
+        const top =
+          buttonRect.top -
+          calendarRect.height -
+          parseInt(buttonStyles.marginTop, 10) -
+          parseInt(calendarStyles.marginBottom, 10);
+
+        calendarRef.current.style.top = `${top}px`;
+      });
     }
 
     changeCalendarPosition();
