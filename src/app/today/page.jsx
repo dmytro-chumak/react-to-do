@@ -10,7 +10,9 @@ import { useContext } from "react";
 import { TasksContext } from "@/context/TasksContext/TasksContext";
 
 export default function Today() {
-  const todos = useContext(TasksContext);
+  const todos = useContext(TasksContext).filter(
+    (todo) => todo.date === new Date().toLocaleDateString()
+  );
 
   return (
     <>
