@@ -11,7 +11,7 @@ import { TasksContext } from "@/context/TasksContext/TasksContext";
 
 export default function Planned() {
   const todos = useContext(TasksContext).filter(
-    (todo) => todo.date !== undefined
+    (todo) => todo.date !== undefined && todo.date !== ""
   );
 
   return (
