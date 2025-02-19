@@ -4,13 +4,7 @@ import styles from "./todo-list.module.css";
 
 import TodoItem from "@/components/todo-item/todo-item";
 
-import { useContext } from "react";
-
-import { TasksContext } from "@/context/TasksContext/TasksContext";
-
-export default function TodoList() {
-  const todos = useContext(TasksContext);
-
+export default function TodoList({ todos }) {
   return (
     <div className={styles["list-container"]}>
       <ul className={styles.list}>
