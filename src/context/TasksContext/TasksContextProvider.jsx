@@ -24,12 +24,30 @@ export default function TasksContextProvider({ children }) {
 const initialTodos = [
   {
     id: 1,
-    text: "Learn React",
+    text: "Done task",
     done: true,
   },
   {
     id: 2,
-    text: "Learn Next.js",
+    text: "Unfinished task",
     done: false,
+  },
+  {
+    id: 3,
+    text: "Today's task",
+    done: false,
+    date: new Date().toLocaleDateString(),
+  },
+  {
+    id: 4,
+    text: "Planned task",
+    done: false,
+    date: "2025-02-31",
+  },
+  {
+    id: 5,
+    text: "Important task",
+    done: false,
+    important: true,
   },
 ];
