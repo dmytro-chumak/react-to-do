@@ -1,5 +1,8 @@
+"use client";
+
 import styles from "./sidebar.module.css";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Sidebar() {
   return (
@@ -13,9 +16,16 @@ export default function Sidebar() {
 }
 
 function Search() {
+  const [search, setSearch] = useState("");
+
   return (
     <div className={styles.search}>
-      <input type="text" placeholder="Search" />
+      <input
+        type="text"
+        placeholder="Search"
+        onChange={(e) => setSearch(e.target.value)}
+        value={search}
+      />
     </div>
   );
 }
