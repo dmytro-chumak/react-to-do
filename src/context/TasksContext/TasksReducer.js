@@ -16,6 +16,6 @@ export default function tasksReducer(tasks, action) {
 
       return [...tasks, task];
     default:
-      return state;
+      return tasks;
   }
 }
