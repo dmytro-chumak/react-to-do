@@ -15,6 +15,10 @@ export default function tasksReducer(tasks, action) {
       };
 
       return [...tasks, task];
+    case "important":
+      return tasks.map((todo) =>
+        todo.id === action.id ? { ...todo, important: !todo.important } : todo
+      );
     default:
       return tasks;
   }
