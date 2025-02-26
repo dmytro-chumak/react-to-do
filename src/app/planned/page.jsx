@@ -18,7 +18,6 @@ export default function Planned() {
     <>
       <div className={styles.header}>
         <Title value="Planned" />
-        <CurrentDay />
       </div>
       <TodoList todos={todos} />
       <AddTodo />

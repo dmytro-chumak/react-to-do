@@ -16,7 +16,6 @@ export default function Tasks() {
     <>
       <div className={styles.header}>
         <Title value="Tasks" />
-        <CurrentDay />
       </div>
       <TodoList todos={todos} />
       <AddTodo />

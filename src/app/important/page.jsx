@@ -18,7 +18,6 @@ export default function Important() {
     <>
       <div className={styles.header}>
         <Title value="Important" />
-        <CurrentDay />
       </div>
       <TodoList todos={todos} />
       <AddTodo />
