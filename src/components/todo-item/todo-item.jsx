@@ -2,11 +2,11 @@
 
 import styles from "./todo-item.module.css";
 
-import { useContext } from "react";
+import { memo, useContext } from "react";
 
 import { TasksDispatchContext } from "@/context/TasksContext/TasksContext";
 
-export default function TodoItem({ id, text, done, date, important }) {
+function TodoItem({ id, text, done, date, important }) {
   const dispatch = useContext(TasksDispatchContext);
 
   function handleDone() {
@@ -39,3 +39,5 @@ export default function TodoItem({ id, text, done, date, important }) {
     </li>
   );
 }
+
+export default memo(TodoItem);
