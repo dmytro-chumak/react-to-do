@@ -3,6 +3,7 @@ import "./globals.css";
 import styles from "./page.module.css";
 import Sidebar from "@/components/sidebar/sidebar";
 import TasksContextProvider from "@/context/TasksContext/TasksContextProvider";
+import SearchContextProvider from "@/context/SearchContext/SearchContextProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,10 +25,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div className={styles.page}>
-          <Sidebar />
-          <TasksContextProvider>
-            <main className={styles.container}>{children}</main>
-          </TasksContextProvider>
+          <SearchContextProvider>
+            <Sidebar />
+            <TasksContextProvider>
+              <main className={styles.container}>{children}</main>
+            </TasksContextProvider>
+          </SearchContextProvider>
         </div>
       </body>
     </html>

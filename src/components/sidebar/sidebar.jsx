@@ -1,8 +1,14 @@
 "use client";
 
+import { useContext } from "react";
+
 import styles from "./sidebar.module.css";
 import Link from "next/link";
-import { useState } from "react";
+
+import {
+  SearchContext,
+  SearchDispatchContext,
+} from "@/context/SearchContext/SearchContext";
 
 export default function Sidebar() {
   return (
@@ -16,7 +22,8 @@ export default function Sidebar() {
 }
 
 function Search() {
-  const [search, setSearch] = useState("");
+  const search = useContext(SearchContext);
+  const setSearch = useContext(SearchDispatchContext);
 
   return (
     <div className={styles.search}>

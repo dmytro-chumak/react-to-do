@@ -1,19 +1,27 @@
 "use client";
 
-import { useReducer } from "react";
+import { useReducer, useContext } from "react";
 
 import {
   TasksContext,
   TasksDispatchContext,
 } from "@/context/TasksContext/TasksContext";
 
+import { SearchContext } from "@/context/SearchContext/SearchContext";
+
 import tasksReducer from "@/context/TasksContext/TasksReducer";
 
 export default function TasksContextProvider({ children }) {
   const [tasks, dispatch] = useReducer(tasksReducer, initialTodos);
 
+  const search = useContext(SearchContext).toLowerCase();
+
+  const filteredTasks = search
+    ? tasks.filter((todo) => todo.text.toLowerCase().includes(search))
+    : tasks;
+
   return (
-    <TasksContext.Provider value={tasks}>
+    <TasksContext.Provider value={filteredTasks}>
       <TasksDispatchContext.Provider value={dispatch}>
         {children}
       </TasksDispatchContext.Provider>
