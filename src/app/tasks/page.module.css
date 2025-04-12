@@ -3,7 +3,6 @@
   height: 10vh;
   position: fixed;
   top: 0;
-  background-color: white;
   padding: 10px 0;
   width: calc(100vw - 377px);
 }

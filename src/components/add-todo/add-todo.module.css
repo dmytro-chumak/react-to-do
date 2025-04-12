@@ -4,19 +4,34 @@
   position: fixed;
   left: 320px;
   bottom: 0;
-  background-color: white;
   width: calc(100vw - 377px);
   display: flex;
+  background-color: var(--add-todo-bg);
+  color: var(--main-text);
+}
+
+.add-todo-container:has(.add-todo:focus) {
+  background-color: var(--add-todo-bg-focus);
 }
 
 .add-todo {
   padding: 10px;
-  background-color: #f0f0f0;
   border: none;
   width: 100%;
+  background-color: transparent;
+  color: inherit;
 }
 
 .add-todo:focus {
   outline: none;
-  background-color: #e0e0e0;
+}
+
+.calendar-button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+}
+
+.calendar-button:hover {
+  background-color: transparent;
 }

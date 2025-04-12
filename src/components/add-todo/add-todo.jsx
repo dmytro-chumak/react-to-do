@@ -41,7 +41,11 @@ export default function AddTodo() {
           placeholder="Try typing something"
           onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}
         ></input>
-        <button ref={buttonRef} onClick={handleCalendarToggle}>
+        <button
+          className={styles["calendar-button"]}
+          ref={buttonRef}
+          onClick={handleCalendarToggle}
+        >
           Calendar {`${date}`}
         </button>
       </div>

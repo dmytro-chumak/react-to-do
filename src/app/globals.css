@@ -1,13 +1,24 @@
 :root {
   --main-bg: #1c1c1c;
-  --main-text: white;
+  --main-text: #ffffff;
   --alternate-bg: #212121;
+  --menu-item-bg-active: #333333;
+  --menu-item-bg-active-hover: #313131;
+  --menu-item-bg-hover: #333333;
+  --todo-item-bg: #2a2a2a;
+  --todo-item-bg-hover: #363636;
+  --todo-item-date-color: #7e7e7e;
+  --todo-item-done-color: #7e7e7e;
+  --add-todo-bg: #2a2a2a;
+  --add-todo-bg-focus: #363636;
 }
 
 body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  color: var(--main-text);
+  background-color: var(--main-bg);
 }
 
 * {

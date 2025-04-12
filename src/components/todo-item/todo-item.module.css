@@ -3,29 +3,32 @@
   gap: 10px;
   align-items: center;
   padding: 10px;
-  background-color: #f0f0f0;
+  background-color: var(--todo-item-bg);
 }
 
 .item:hover {
-  background-color: #e0e0e0;
+  background-color: var(--todo-item-bg-hover);
 }
 
 .button-done {
   width: 20px;
   height: 20px;
   padding: 1px;
-  border: 1px solid black;
+  border: 1px solid var(--main-text);
   border-radius: 10px;
   background-color: transparent;
   cursor: pointer;
+  color: var(--main-text);
 }
 
 .button-done:hover::before {
+  color: var(--main-text);
   content: "✓";
 }
 
 .done span {
   text-decoration: line-through;
+  color: var(--todo-item-done-color);
 }
 
 .done .button-done::before {
@@ -41,14 +44,14 @@
 
 .date {
   font-size: 0.8em;
-  color: #666;
+  color: var(--todo-item-date-color);
 }
 
 .button-important {
   width: 20px;
   height: 20px;
   padding: 1px;
-  border: 1px solid black;
+  border: 1px solid var(--main-text);
   border-radius: 10px;
   background-color: transparent;
   cursor: pointer;
@@ -57,4 +60,5 @@
 .important .button-important::before,
 .button-important:hover::before {
   content: "!";
+  color: var(--main-text);
 }
