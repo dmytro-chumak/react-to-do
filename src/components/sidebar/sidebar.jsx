@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import styles from "./sidebar.module.css";
 import Link from "next/link";
@@ -38,20 +38,53 @@ function Search() {
 }
 
 function Menu() {
+  const [activePage, setActivePage] = useState("Today");
+
+  const menuItems = [
+    {
+      url: "/today",
+      value: "Today",
+    },
+    {
+      url: "/tasks",
+      value: "Tasks",
+    },
+    {
+      url: "/planned",
+      value: "Planned",
+    },
+    {
+      url: "/important",
+      value: "Important",
+    },
+  ];
+
   return (
     <ul className={styles.menu}>
-      <MenuItem url="/today" value="Today" />
-      <MenuItem url="/important" value="Important" />
-      <MenuItem url="/planned" value="Planned" />
-      <MenuItem url="/tasks" value="Tasks" />
+      {menuItems.map((menuItem) => (
+        <MenuItem
+          key={menuItem.value}
+          url={menuItem.url}
+          value={menuItem.value}
+          active={menuItem.value === activePage}
+          setActivePage={setActivePage}
+        />
+      ))}
     </ul>
   );
 }
 
-function MenuItem({ url, value }) {
+function MenuItem({ url, value, active, setActivePage }) {
   return (
-    <li className={styles.menuItem}>
-      <Link href={url} className={styles.menuItem} scroll={false}>
+    <li
+      className={styles.menuItem + " " + (active ? styles.menuItemActive : "")}
+    >
+      <Link
+        href={url}
+        className={styles.menuItem}
+        scroll={false}
+        onClick={() => setActivePage(value)}
+      >
         {value}
       </Link>
     </li>
