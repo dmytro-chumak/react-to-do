@@ -7,6 +7,11 @@ import { TasksDispatchContext } from "@/context/TasksContext/TasksContext";
 
 import Calendar from "../calendar/calendar";
 
+/*
+  TODO: add date/importance to the created task
+  TODO: add a date or importance definition when entering a task name in the input
+*/
+
 export default function AddTodo() {
   const buttonRef = useRef(null);
   const [value, setValue] = useState("");
