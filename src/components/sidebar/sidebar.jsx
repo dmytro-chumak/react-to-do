@@ -46,16 +46,16 @@ function Menu() {
       value: "Today",
     },
     {
-      url: "/tasks",
-      value: "Tasks",
+      url: "/important",
+      value: "Important",
     },
     {
       url: "/planned",
       value: "Planned",
     },
     {
-      url: "/important",
-      value: "Important",
+      url: "/tasks",
+      value: "Tasks",
     },
   ];
 
@@ -79,12 +79,7 @@ function MenuItem({ url, value, active, setActivePage }) {
     <li
       className={styles.menuItem + " " + (active ? styles.menuItemActive : "")}
     >
-      <Link
-        href={url}
-        className={styles.menuItem}
-        scroll={false}
-        onClick={() => setActivePage(value)}
-      >
+      <Link href={url} scroll={false} onClick={() => setActivePage(value)}>
         {value}
       </Link>
     </li>

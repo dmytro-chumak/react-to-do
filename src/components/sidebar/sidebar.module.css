@@ -32,12 +32,12 @@
 }
 
 .menuItem {
-  padding: 5px;
+  padding: 10px;
   font-size: 16px;
   cursor: pointer;
 }
 
-.menuItem:hover:not(.menuItemActive) {
+.menuItem:hover {
   background-color: var(--menu-item-bg-hover);
 }
 
