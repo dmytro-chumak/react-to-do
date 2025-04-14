@@ -9,6 +9,7 @@ import Calendar from "../calendar/calendar";
 
 /*
   TODO: add date/importance to the created task
+  TODO: add highlighting of a certain date or importance in the text 
   TODO: add a definition of importance/date depending on the selected tab
 */
 
