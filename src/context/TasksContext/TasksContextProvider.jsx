@@ -50,7 +50,7 @@ const initialTodos = [
     id: 4,
     text: "Planned task",
     done: false,
-    date: "2025-02-31",
+    date: "31.02.2025",
   },
   {
     id: 5,
