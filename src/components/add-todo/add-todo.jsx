@@ -20,7 +20,22 @@ export default function AddTodo() {
   const dispatch = useContext(TasksDispatchContext);
 
   function handleSubmit(e) {
-    dispatch({ type: "add", text: e.target.value, date: date });
+    let text = e.target.value.trim();
+    let important = false;
+
+    if (!text) return;
+
+    if (text.match(/(?<=\s|^)!(?=\s|$)/)) {
+      important = true;
+      text = text.replace(/(?<=\s|^)!(?=\s|$)/, "");
+    }
+
+    dispatch({
+      type: "add",
+      text: e.target.value,
+      date: date,
+      important: important,
+    });
 
     setValue("");
     setDate(new Date().toLocaleDateString());

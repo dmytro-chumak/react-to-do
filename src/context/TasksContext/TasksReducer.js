@@ -11,6 +11,7 @@ export default function tasksReducer(tasks, action) {
         id: maxId + 1,
         text: action.text,
         date: action.date,
+        important: action.important,
         done: false,
       };
 
