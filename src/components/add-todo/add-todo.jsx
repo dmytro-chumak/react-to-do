@@ -9,7 +9,6 @@ import Calendar from "../calendar/calendar";
 
 /*
   TODO: add date/importance to the created task
-  TODO: add a date or importance definition when entering a task name in the input
   TODO: add a definition of importance/date depending on the selected tab
 */
 
@@ -23,18 +22,38 @@ export default function AddTodo() {
   function handleSubmit(e) {
     let text = e.target.value.trim();
     let important = false;
+    let extractedDate = "";
 
     if (!text) return;
 
     if (text.match(/(?<=\s|^)!(?=\s|$)/)) {
       important = true;
-      text = text.replace(/(?<=\s|^)!(?=\s|$)/, "");
+      text = text.replace(/(?<=\s|^)!(?=\s|$)/, "").trim();
     }
+
+    const dateRegex =
+      /(?<=\s|^)(\d{1,2})[.\-/](\d{1,2})(?:[.\-/](\d{2,4}))?(?=\s|$)/;
+    const dateMatch = text.match(dateRegex);
+
+    if (dateMatch) {
+      let [, day, month, year] = dateMatch;
+
+      const currentYear = new Date().getFullYear();
+      year = year ? (year.length === 2 ? `20${year}` : year) : currentYear;
+
+      const parsedDate = new Date(`${year}-${month}-${day}`);
+      if (!isNaN(parsedDate)) {
+        extractedDate = parsedDate.toLocaleDateString();
+        text = text.replace(dateRegex, "").trim();
+      }
+    }
+
+    if (!text) return;
 
     dispatch({
       type: "add",
-      text: e.target.value,
-      date: date,
+      text: text,
+      date: extractedDate || date,
       important: important,
     });
 
