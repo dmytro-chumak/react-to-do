@@ -38,7 +38,6 @@ export default function AddTodo() {
     });
 
     setValue("");
-    setDate(new Date().toLocaleDateString());
   }
 
   function handleCalendarToggle() {
