@@ -1,16 +1,13 @@
 "use client";
 
 import styles from "./add-todo.module.css";
-
-import { useContext, useState, useRef } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import { TasksDispatchContext } from "@/context/TasksContext/TasksContext";
-
+import { usePathname } from "next/navigation";
 import Calendar from "../calendar/calendar";
 
 /*
-  TODO: add date/importance to the created task
   TODO: add highlighting of a certain date or importance in the text 
-  TODO: add a definition of importance/date depending on the selected tab
 */
 
 export default function AddTodo() {
@@ -19,10 +16,20 @@ export default function AddTodo() {
   const [date, setDate] = useState("");
   const [showCalendar, setShowCalendar] = useState(false);
   const dispatch = useContext(TasksDispatchContext);
+  const pathname = usePathname();
+
+  // Set default values based on current page
+  useEffect(() => {
+    if (pathname === "/today") {
+      setDate(new Date().toLocaleDateString());
+    } else {
+      setDate("");
+    }
+  }, [pathname]);
 
   function handleSubmit(e) {
     let text = e.target.value.trim();
-    let important = false;
+    let important = pathname === "/important" || false;
     let extractedDate = "";
 
     if (!text) return;
@@ -78,7 +85,13 @@ export default function AddTodo() {
           type="text"
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          placeholder="Try typing something"
+          placeholder={`Try typing something${
+            pathname === "/important"
+              ? " (will be marked as important)"
+              : pathname === "/today"
+              ? " (will be assigned to today)"
+              : ""
+          }`}
           onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}
         ></input>
         <button
@@ -86,7 +99,7 @@ export default function AddTodo() {
           ref={buttonRef}
           onClick={handleCalendarToggle}
         >
-          Calendar {`${date}`}
+          Calendar {date ? `(${date})` : ""}
         </button>
       </div>
 
