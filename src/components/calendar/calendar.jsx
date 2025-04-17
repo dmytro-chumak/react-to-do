@@ -19,14 +19,12 @@ export default function Calendar({ onChose, buttonRef }) {
         const buttonStyles = getComputedStyle(buttonRef.current);
         const calendarStyles = getComputedStyle(calendarRef.current);
 
-        // Перевірка, чи достатньо місця зверху
         const topPosition =
           buttonRect.top -
           calendarRect.height -
           parseInt(buttonStyles.marginTop, 10) -
           parseInt(calendarStyles.marginBottom, 10);
 
-        // Якщо зверху недостатньо місця, показуємо знизу
         if (topPosition < 0) {
           const bottomPosition =
             buttonRect.bottom +
@@ -39,14 +37,12 @@ export default function Calendar({ onChose, buttonRef }) {
       });
     }
 
-    // Викликаємо функцію після невеликої затримки, щоб DOM встиг рендеритись
-    const timeoutId = setTimeout(changeCalendarPosition, 0);
+    changeCalendarPosition();
 
     window.addEventListener("resize", changeCalendarPosition);
     window.addEventListener("scroll", changeCalendarPosition);
 
     return () => {
-      clearTimeout(timeoutId);
       window.removeEventListener("resize", changeCalendarPosition);
       window.removeEventListener("scroll", changeCalendarPosition);
     };
