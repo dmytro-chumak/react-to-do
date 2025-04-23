@@ -1,5 +1,7 @@
 # React Todo App
 
+[Go to the website](https://chumak-react-to-do.netlify.app/today)
+
 A clean, minimalist todo application built with React and Next.js that helps you organize your daily tasks efficiently.
 
 ![Todo App Screenshot](/public/images/intro.png)
